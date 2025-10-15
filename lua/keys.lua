@@ -10,9 +10,10 @@ vim.keymap.set('n', '<C-Home>', ':tabn<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-End>', ':tabp<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<F5>', ':Term<CR>', {noremap = true, silent=true})
+vim.keymap.set('n', '<F1>', '', {noremap = true, silent=true})
 
 vim.keymap.set('v', '<Leader>y', '"*y');
-vim.keymap.set('v', '<Leader>p', '"*p');
+vim.keymap.set('n', '<Leader>p', '"*p');
 
 -- Custom terminal command that opens in a horizontal split
 vim.api.nvim_create_user_command('Term', function(opts)
