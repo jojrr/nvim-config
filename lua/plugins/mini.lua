@@ -12,6 +12,10 @@ return
             })
             vim.notify = require('mini.notify').make_notify()
 
+            vim.keymap.set('n', '<Leader>h', function()
+                vim.cmd("tabnew")
+                require('mini.notify').show_history()
+            end)
 
             local starter = require('mini.starter')
 
