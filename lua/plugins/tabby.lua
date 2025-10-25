@@ -10,7 +10,7 @@ return {
         return {
             line.tabs().foreach(function(tab)
             return {
-                " " .. tab.number() .. "   ",
+                " " .. tab.name() .. "  ",
                 hl = tab.is_current() and "MyTabActive" or "MyTabInactive",
                 margin = " ",
             }
