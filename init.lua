@@ -18,7 +18,7 @@ require("plugins.telescope");
 require("plugins.tabby");
 vim.o.showtabline = 2;
 
-vim.g.python3_host_prog = "C:/Users/bluei/AppData/Local/Programs/Python/Python313/python.exe"
+vim.g.python3_host_prog = "%USERPROFILE%/AppData/Local/Programs/Python/Python313/python.exe"
 
 
 -- vim.api.nvim_create_autocmd("LspAttach", {
