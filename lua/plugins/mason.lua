@@ -12,8 +12,8 @@ return {
     })
 
     local lspconfig = require("lspconfig")
-
-    local omnisharp_bin = "C:/Users/bluei/AppData/Local/nvim-data/mason/packages/omnisharp/OmniSharp.exe"
+    local data_path = vim.fn.stdpath("data")
+    local omnisharp_bin = data_path .. "/mason/packages/omnisharp/OmniSharp.exe"
 
     local on_attach = function(client, bufnr)
       local opts = { noremap=true, silent=true, buffer=bufnr }
@@ -22,6 +22,7 @@ return {
         vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     end
+
 
     lspconfig.lua_ls.setup({
       on_attach = on_attach,
