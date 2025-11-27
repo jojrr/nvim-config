@@ -17,18 +17,10 @@ vim.keymap.set('n', '<F1>', '', {noremap = true, silent=true})
 vim.keymap.set('v', '<Leader>y', '"*y');
 vim.keymap.set('n', '<Leader>p', '"*p');
 
--- Custom terminal command that opens in a horizontal split
 vim.api.nvim_create_user_command('Term', function(opts)
-  local dir = vim.fn.expand('%:p:h')  -- current file directory
-  local total_lines = vim.o.lines
-  --local term_height = math.floor(total_lines * 0.1)
-  local term_height = 10;
-  vim.cmd("botright split") -- horizontal split on the bottom of the screen
-  vim.cmd("resize" .. term_height) --set the size
-  vim.cmd("lcd " .. dir)               -- set local cwd for the split
-  vim.cmd("terminal " .. (opts.args or ""))  -- run terminal with optional args
-  vim.cmd("startinsert")               -- go straight into insert mode
-end, { nargs = "*" })                  -- allows passing arguments to terminal
+    vim.cmd("tabnew | lcd %:p:h | terminal")
+    vim.cmd("startinsert")
+end, { nargs = "*" })
 
 
 vim.api.nvim_create_user_command('WriteSession', function(opts)
