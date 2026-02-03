@@ -11,7 +11,6 @@ return {
       automatic_installation = true,
     })
 
-    local lspconfig = require("lspconfig")
     local data_path = vim.fn.stdpath("data")
     local omnisharp_bin = data_path .. "/mason/packages/omnisharp/OmniSharp.exe"
 
@@ -23,17 +22,16 @@ return {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     end
 
-
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       on_attach = on_attach,
       settings = {
         Lua = { diagnostics = { globals = { "vim" } } },
       },
     })
 
-    lspconfig.pyright.setup({ on_attach = on_attach })
+    vim.lsp.config("pyright", { on_attach = on_attach })
 
-    lspconfig.omnisharp.setup({
+    vim.lsp.config("omnisharp", {
       cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.loop.getpid()) },
       cmd_env = {
         DOTNET_CLI_UI_LANGUAGE = "en",
@@ -43,6 +41,11 @@ return {
       },
       on_attach = on_attach,
     })
-  end,
+
+    vim.lsp.enable("lua_ls")
+    vim.lsp.enable("pyright")
+    vim.lsp.enable("omnisharp")
+
+  end
 }
 

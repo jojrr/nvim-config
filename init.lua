@@ -6,7 +6,9 @@ require("keys")
 
 require("plugins.surround")
 require("plugins.mason")
-require'lspconfig'.lua_ls.setup{}
+vim.lsp.config('lua_ls', {})
+vim.lsp.enable('lua_ls')
+
 require("plugins.undotree")
 require("plugins.cmp");
 require("plugins.oil");
@@ -20,6 +22,7 @@ vim.o.showtabline = 2;
 
 vim.g.python3_host_prog = "%USERPROFILE%/AppData/Local/Programs/Python/Python313/python.exe"
 
+vim.o.shell = 'powershell.exe'
 
 -- vim.api.nvim_create_autocmd("LspAttach", {
 --   callback = function(args)
