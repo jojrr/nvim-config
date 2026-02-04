@@ -12,15 +12,12 @@ vim.lsp.enable('lua_ls')
 require("plugins.undotree")
 require("plugins.cmp");
 require("plugins.oil");
-require("plugins.treesitter");
 require("plugins.mini");
 require("plugins.todo");
 require("plugins.telescope");
 
 require("plugins.tabby");
 vim.o.showtabline = 2;
-
-vim.g.python3_host_prog = "%USERPROFILE%/AppData/Local/Programs/Python/Python313/python.exe"
 
 vim.o.shell = 'powershell.exe'
 

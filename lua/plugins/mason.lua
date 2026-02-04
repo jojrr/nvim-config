@@ -7,12 +7,12 @@ return {
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "omnisharp", "lua_ls", "pyright", "clangd" },
+      ensure_installed = { "omnisharp", "lua_ls" },
       automatic_installation = true,
     })
 
     local data_path = vim.fn.stdpath("data")
-    local omnisharp_bin = data_path .. "/mason/packages/omnisharp/OmniSharp.exe"
+    local omnisharp_bin = data_path .. "/mason/bin/OmniSharp.cmd"
 
     local on_attach = function(client, bufnr)
       local opts = { noremap=true, silent=true, buffer=bufnr }
@@ -29,8 +29,6 @@ return {
       },
     })
 
-    vim.lsp.config("pyright", { on_attach = on_attach })
-
     vim.lsp.config("omnisharp", {
       cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.loop.getpid()) },
       cmd_env = {
@@ -43,7 +41,6 @@ return {
     })
 
     vim.lsp.enable("lua_ls")
-    vim.lsp.enable("pyright")
     vim.lsp.enable("omnisharp")
 
   end

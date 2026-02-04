@@ -51,7 +51,7 @@ return
             vim.api.nvim_set_hl(0, "MiniStarterHeader", {
               fg = "#c56857",
               bold = false,
-              italic = true,
+              italic = false,
             })
 
             require('mini.git').setup()
