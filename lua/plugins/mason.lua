@@ -11,8 +11,7 @@ return {
       automatic_installation = true,
     })
 
-    local data_path = vim.fn.stdpath("data")
-    local omnisharp_bin = data_path .. "/mason/packages/omnisharp/OmniSharp.exe"
+    local omnisharp_bin = vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.exe"
 
     local on_attach = function(client, bufnr)
       local opts = { noremap=true, silent=true, buffer=bufnr }
