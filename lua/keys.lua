@@ -17,11 +17,6 @@ vim.keymap.set('n', '<F1>', '', {noremap = true, silent=true})
 vim.keymap.set('v', '<Leader>y', '"*y');
 vim.keymap.set('n', '<Leader>p', '"*p');
 
-vim.api.nvim_create_user_command('Term', function(opts)
-    vim.cmd("tabnew | lcd %:p:h | terminal")
-    vim.cmd("startinsert")
-end, { nargs = "*" })
-
 
 vim.api.nvim_create_user_command('WriteSession', function(opts)
         local name = opts.args ~= '' and opts.args or require('mini.sessions').get_latest()

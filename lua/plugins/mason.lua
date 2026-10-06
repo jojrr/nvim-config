@@ -6,19 +6,14 @@ return {
   },
   config = function()
     require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = { "omnisharp", "lua_ls", "pyright", "clangd" },
-      automatic_installation = true,
-    })
+  ensure_installed = { "omnisharp", "lua_ls", "clangd" }
 
-    local omnisharp_bin = vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.exe"
-
-    local on_attach = function(client, bufnr)
-      local opts = { noremap=true, silent=true, buffer=bufnr }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  local on_attach = function(client, bufnr)
+      local opts = { noremap=true, silent=true, buffer=bufnr } 
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) 
+      vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, opts) 
+      vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     end
 
     vim.lsp.config("lua_ls", {
@@ -28,21 +23,7 @@ return {
       },
     })
 
-    vim.lsp.config("pyright", { on_attach = on_attach })
-
-    vim.lsp.config("omnisharp", {
-      cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.loop.getpid()) },
-      cmd_env = {
-        DOTNET_CLI_UI_LANGUAGE = "en",
-        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1",
-        LANG = "en_US.UTF-8",
-        LC_ALL = "en_US.UTF-8"
-      },
-      on_attach = on_attach,
-    })
-
     vim.lsp.enable("lua_ls")
-    vim.lsp.enable("pyright")
     vim.lsp.enable("omnisharp")
 
   end
