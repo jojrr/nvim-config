@@ -1,5 +1,5 @@
 vim.g.mapleader = ','
-vim.g.localmapleader = '¬'
+vim.g.localmapleader = ','
 require("config.lazy")
 require("set")
 require("keys")
@@ -20,4 +20,9 @@ require("plugins.vimTex");
 
 require("plugins.tabby");
 vim.o.showtabline = 2;
-vim.o.guicursor = "v:blinkon10-blinkoff100"
+vim.opt.guicursor = {
+  "n-v-c:block",
+  "i-ci:ver25",
+  "r-cr:hor20",
+  "a:blinkwait700-blinkoff400-blinkon250",
+}

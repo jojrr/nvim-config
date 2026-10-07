@@ -14,8 +14,8 @@ vim.keymap.set('n', '<C-Home>', ':tabp<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<F5>', ':Term<CR>', {noremap = true, silent=true})
 vim.keymap.set('n', '<F1>', '', {noremap = true, silent=true})
 
-vim.keymap.set('v', '<Leader>y', '"*y');
-vim.keymap.set('n', '<Leader>p', '"*p');
+vim.keymap.set('v', '<Leader>y', '"+y');
+vim.keymap.set('n', '<Leader>p', '"+p');
 
 
 vim.api.nvim_create_user_command('WriteSession', function(opts)
