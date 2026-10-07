@@ -1,5 +1,5 @@
 vim.g.mapleader = ','
-vim.g.localmapleader = ','
+vim.g.localmapleader = '\\'
 require("config.lazy")
 require("set")
 require("keys")
