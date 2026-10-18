@@ -6,7 +6,8 @@ return {
   },
   config = function()
     require("mason").setup()
-  ensure_installed = { "omnisharp", "lua_ls", "clangd" }
+    require("mason-lspconfig").setup()
+  ensure_installed = { "omnisharp", "lua_ls", "clangd", "eclipse.jdt.ls"}
 
   local on_attach = function(client, bufnr)
       local opts = { noremap=true, silent=true, buffer=bufnr } 
@@ -18,13 +19,20 @@ return {
 
     vim.lsp.config("lua_ls", {
       on_attach = on_attach,
+      cmd = { "lua_ls" },
       settings = {
         Lua = { diagnostics = { globals = { "vim" } } },
       },
     })
 
+    vim.lsp.config("clangd", {
+      on_attach = on_attach,
+      cmd = { "clangd" }
+    })
+
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("omnisharp")
+    vim.lsp.enable("clangd")
 
   end
 }

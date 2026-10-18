@@ -1,5 +1,7 @@
 vim.g.mapleader = ','
 vim.g.localmapleader = '\\'
+vim.opt.mouse = ""
+vim.opt.swapfile = false
 require("config.lazy")
 require("set")
 require("keys")
@@ -19,6 +21,7 @@ require("plugins.telescope");
 require("plugins.vimTex");
 
 require("plugins.tabby");
+
 vim.o.showtabline = 2;
 vim.opt.guicursor = {
   "n-v-c:block",
