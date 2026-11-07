@@ -11,7 +11,7 @@ vim.keymap.set('n', '<C-Delete>', ':tabclose<CR>', { noremap = true, silent = tr
 vim.keymap.set('n', '<C-End>', ':tabn<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-Home>', ':tabp<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<F5>', ':Term<CR>', {noremap = true, silent=true})
+vim.keymap.set('n', '<F5>', ':term<CR>', {noremap = true, silent=true})
 vim.keymap.set('n', '<F1>', '', {noremap = true, silent=true})
 
 vim.keymap.set('v', '<Leader>y', '"+y');
